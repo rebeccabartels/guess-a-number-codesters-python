@@ -1,0 +1,26 @@
+computer = codesters.Sprite("superhero2")
+stage.set_background("city")
+computer.say("I bet you can't guess my number!")
+stage.wait(2)
+computer.say("I'll give you ten tries to guess.")
+stage.wait(2)
+computer.say("It's a number between 1 and 100.")
+stage.wait(2)
+
+rand_num = random.randint(1, 100)
+
+for counter in range(10):
+    stage.wait(1)
+    computer.say("Time to guess!")
+    guess = int(computer.ask("What do you think my number is?"))
+    if guess == rand_num:
+        computer.say("Great job, you guessed my number!")
+        break
+    if guess > rand_num:
+        computer.say("Too high!")
+        stage.wait(2)
+    if guess < rand_num:
+        computer.say("Too low!")
+        stage.wait(2)
+stage.wait(2)
+computer.say("My number was " + str(rand_num))
